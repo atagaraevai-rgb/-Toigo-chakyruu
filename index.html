@@ -1,0 +1,1685 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color" content="#063b32">
+
+<title>Нурдөөлөт & Найнурай — Үйлөнүү тою</title>
+
+<style>
+
+/* =========================
+   НЕГИЗГИ ТҮСТӨР
+========================= */
+
+:root {
+    --green: #063b32;
+    --green-light: #0d5748;
+    --green-dark: #021f1a;
+    --gold: #d9b768;
+    --gold-light: #f2d695;
+    --cream: #fff8e8;
+    --white: #ffffff;
+}
+
+
+/* =========================
+   ЖАЛПЫ СТИЛЬ
+========================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+
+    background: var(--green-dark);
+
+    color: var(--cream);
+
+    font-family:
+    Arial,
+    sans-serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   АР БИР ЭКРАН
+========================= */
+
+.screen {
+
+    position: relative;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 50px 20px;
+
+    overflow: hidden;
+}
+
+
+.content {
+
+    position: relative;
+
+    z-index: 3;
+
+    width: 100%;
+
+    max-width: 900px;
+
+}
+
+
+/* =========================
+   ФОН
+========================= */
+
+.green-background {
+
+    background:
+
+    radial-gradient(
+        circle at 20% 20%,
+        rgba(217,183,104,0.15),
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 80% 80%,
+        rgba(217,183,104,0.12),
+        transparent 30%
+    ),
+
+    linear-gradient(
+        150deg,
+        var(--green-light),
+        var(--green-dark)
+    );
+}
+
+
+/* =========================
+   ЖАЛПЫ ТЕКСТ
+========================= */
+
+.small-title {
+
+    color: var(--gold);
+
+    letter-spacing: 4px;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+}
+
+
+h1,
+h2 {
+
+    font-family: Georgia, serif;
+
+    font-weight: normal;
+
+}
+
+
+h1 {
+
+    font-size: clamp(
+        48px,
+        14vw,
+        100px
+    );
+
+    line-height: 0.9;
+
+}
+
+
+h2 {
+
+    font-size: clamp(
+        38px,
+        10vw,
+        75px
+    );
+
+}
+
+
+p {
+
+    line-height: 1.8;
+
+    font-size: 17px;
+
+}
+
+
+/* =========================
+   1. КОНВЕРТ
+========================= */
+
+#envelope {
+
+    background:
+
+    radial-gradient(
+        circle at top,
+        #146151,
+        #052d26 70%
+    );
+
+}
+
+
+.envelope-card {
+
+    border: 1px solid var(--gold);
+
+    border-radius: 30px;
+
+    padding: 60px 25px;
+
+    max-width: 650px;
+
+    width: 100%;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        rgba(255,255,255,0.04),
+        rgba(0,0,0,0.12)
+    );
+
+    box-shadow:
+
+    0 30px 90px
+    rgba(0,0,0,0.45);
+
+}
+
+
+.seal {
+
+    margin: auto;
+
+    width: 70px;
+
+    height: 70px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    border: 2px solid var(--gold);
+
+    color: var(--gold);
+
+    font-size: 32px;
+
+    margin-bottom: 30px;
+
+}
+
+
+.open-button {
+
+    border: none;
+
+    padding: 16px 32px;
+
+    border-radius: 40px;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        var(--gold-light),
+        #a47d36
+    );
+
+    color: #18372f;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    margin-top: 20px;
+
+}
+
+
+/* =========================
+   2. HERO
+========================= */
+
+.photo-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-size: cover;
+
+    background-position: center;
+
+    transform: scale(1.03);
+
+}
+
+
+.dark-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+    linear-gradient(
+
+        to bottom,
+
+        rgba(0,20,15,0.25),
+
+        rgba(0,25,20,0.85)
+
+    );
+
+}
+
+
+.names {
+
+    color: var(--cream);
+
+    text-shadow:
+
+    0 5px 30px
+    rgba(0,0,0,0.6);
+
+}
+
+
+.names span {
+
+    color: var(--gold);
+
+    font-style: italic;
+
+}
+
+
+.hero-subtitle {
+
+    font-family: Georgia, serif;
+
+    font-size: 27px;
+
+}
+
+
+.scroll {
+
+    margin-top: 60px;
+
+    opacity: 0.75;
+
+    animation: floating 2s infinite;
+
+}
+
+
+@keyframes floating {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================
+   3. ЧАКЫРУУ
+========================= */
+
+.invitation-box {
+
+    border: 1px solid var(--gold);
+
+    border-radius: 30px;
+
+    padding: 50px 25px;
+
+    max-width: 800px;
+
+    background:
+
+    rgba(2,35,29,0.78);
+
+    box-shadow:
+
+    0 25px 80px
+    rgba(0,0,0,0.4);
+
+}
+
+
+.invitation-box h2 {
+
+    font-size: clamp(
+        35px,
+        8vw,
+        60px
+    );
+
+}
+
+
+.gold-text {
+
+    color: var(--gold-light);
+
+    font-weight: bold;
+
+}
+
+
+/* =========================
+   4. ДАТА
+========================= */
+
+.date-circle {
+
+    width: min(
+        700px,
+        95vw
+    );
+
+    aspect-ratio: 1;
+
+    border: 1px solid var(--gold);
+
+    border-radius: 50%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 25px;
+
+    box-shadow:
+
+    0 0 100px
+    rgba(217,183,104,0.12);
+
+}
+
+
+.big-date {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(
+        45px,
+        11vw,
+        90px
+    );
+
+}
+
+
+.year {
+
+    color: var(--gold);
+
+    font-size: 30px;
+
+}
+
+
+.time {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(
+        55px,
+        14vw,
+        100px
+    );
+
+    margin-top: 20px;
+
+}
+
+
+/* =========================
+   5. ТОЙДУН ОРДУ
+========================= */
+
+.location-button {
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    padding: 15px 30px;
+
+    border-radius: 40px;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+    background:
+
+    linear-gradient(
+        135deg,
+        var(--gold-light),
+        #a77c31
+    );
+
+    color: #16352e;
+
+}
+
+
+/* =========================
+   6. LOVE STORY
+========================= */
+
+.gallery {
+
+    display: grid;
+
+    grid-template-columns:
+
+    repeat(
+        2,
+        1fr
+    );
+
+    gap: 12px;
+
+    margin-top: 30px;
+
+}
+
+
+.gallery img {
+
+    width: 100%;
+
+    aspect-ratio: 1;
+
+    object-fit: cover;
+
+    border-radius: 20px;
+
+    border: 1px solid
+    rgba(217,183,104,0.5);
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+}
+
+
+.gallery img:hover {
+
+    transform: scale(1.03);
+
+}
+
+
+/* =========================
+   7. COUNTDOWN
+========================= */
+
+.timer {
+
+    display: grid;
+
+    grid-template-columns:
+
+    repeat(
+        4,
+        1fr
+    );
+
+    gap: 10px;
+
+    margin-top: 40px;
+
+}
+
+
+.timer-box {
+
+    border: 1px solid
+    rgba(217,183,104,0.6);
+
+    border-radius: 20px;
+
+    padding: 20px 5px;
+
+    background:
+
+    rgba(0,0,0,0.12);
+
+}
+
+
+.timer-number {
+
+    display: block;
+
+    color: var(--gold);
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(
+        32px,
+        8vw,
+        60px
+    );
+
+}
+
+
+.timer-label {
+
+    display: block;
+
+    margin-top: 8px;
+
+    letter-spacing: 2px;
+
+    font-size: 10px;
+
+}
+
+
+/* =========================
+   8. КҮТӨБҮЗ
+========================= */
+
+.waiting-box {
+
+    border: 1px solid var(--gold);
+
+    border-radius: 30px;
+
+    padding: 50px 25px;
+
+    max-width: 750px;
+
+    background:
+
+    rgba(0,0,0,0.12);
+
+}
+
+
+/* =========================
+   9. ТОЙ ЭЭЛЕРИ
+========================= */
+
+.host-names {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(
+        50px,
+        13vw,
+        100px
+    );
+
+}
+
+
+.host-names span {
+
+    color: var(--gold);
+
+}
+
+
+/* =========================
+   10. ФИНАЛ
+========================= */
+
+.final-title {
+
+    font-family: Georgia, serif;
+
+    font-size: clamp(
+        40px,
+        9vw,
+        80px
+    );
+
+}
+
+
+.final-names {
+
+    color: var(--gold);
+
+    font-family: Georgia, serif;
+
+    font-size: 30px;
+
+}
+
+
+.stars {
+
+    color: var(--gold);
+
+    font-size: 25px;
+
+    animation: sparkle 2s infinite;
+
+}
+
+
+@keyframes sparkle {
+
+    0% {
+
+        opacity: 0.5;
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+    }
+
+    100% {
+
+        opacity: 0.5;
+
+    }
+
+}
+
+
+/* =========================
+   МУЗЫКА БАСЫКЫЧЫ
+========================= */
+
+.music-button {
+
+    position: fixed;
+
+    right: 20px;
+
+    bottom: 20px;
+
+    z-index: 100;
+
+    width: 55px;
+
+    height: 55px;
+
+    border-radius: 50%;
+
+    border: 1px solid var(--gold);
+
+    background:
+
+    rgba(6,59,50,0.95);
+
+    color: var(--gold);
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+}
+
+
+/* =========================
+   АНИМАЦИЯ
+========================= */
+
+.fade {
+
+    opacity: 0;
+
+    transform:
+    translateY(35px);
+
+    transition:
+    1.2s ease;
+
+}
+
+
+.screen.visible
+.fade {
+
+    opacity: 1;
+
+    transform:
+    translateY(0);
+
+}
+
+
+/* =========================
+   ТЕЛЕФОН ҮЧҮН
+========================= */
+
+@media (
+    max-width: 600px
+) {
+
+    p {
+
+        font-size: 15px;
+
+    }
+
+
+    .timer {
+
+        gap: 5px;
+
+    }
+
+
+    .timer-box {
+
+        padding:
+        16px 3px;
+
+    }
+
+
+    .gallery {
+
+        gap: 8px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     МУЗЫКА
+========================= -->
+
+<audio
+    id="weddingMusic"
+    src="music/wedding.mp3"
+    loop
+    preload="auto">
+</audio>
+
+
+<!-- =========================
+     1. КОНВЕРТ
+========================= -->
+
+<section
+    class="screen"
+    id="envelope">
+
+    <div class="envelope-card">
+
+        <div class="seal">
+            ♥
+        </div>
+
+        <div class="small-title">
+            Биздин өзгөчө күн
+        </div>
+
+        <h1>
+            ТОЙГО
+            <br>
+            ЧАКЫРАБЫЗ!
+        </h1>
+
+        <p>
+            Нурдөөлөт & Найнурай
+        </p>
+
+        <button
+            class="open-button"
+            id="openInvitation">
+
+            Конвертти ачыңыз
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     2. БАШКЫ ЭКРАН
+========================= -->
+
+<section
+    class="screen"
+    id="hero">
+
+    <div
+        class="photo-background"
+        style="
+        background-image:
+        url('images/hero.jpg');
+        ">
+    </div>
+
+    <div
+        class="dark-overlay">
+    </div>
+
+    <div class="content">
+
+        <div
+            class="small-title fade">
+
+            Биздин өзгөчө күн
+
+        </div>
+
+        <h2
+            class="names fade">
+
+            Нурдөөлөт
+            <span>&</span>
+            Найнурай
+
+        </h2>
+
+        <p
+            class="hero-subtitle fade">
+
+            Биздин тойго чакырабыз!
+
+        </p>
+
+        <div
+            class="scroll fade">
+
+            ↓ Жылдыруу
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     3. ЧАКЫРУУ ТЕКСТИ
+========================= -->
+
+<section
+    class="
+    screen
+    green-background
+    ">
+
+    <div
+        class="
+        invitation-box
+        fade
+        ">
+
+        <div
+            class="small-title">
+
+            ЧАКЫРУУ
+
+        </div>
+
+        <h2>
+
+            Урматтуу
+            кадырлуу
+            коноктор!
+
+        </h2>
+
+        <p>
+
+            Сиздерди биздин
+            уулубуздун
+            үйлөнүү тоюна
+            ардактап чакырабыз.
+
+        </p>
+
+        <p>
+
+            Өмүрүбүздөгү өзгөчө
+            бул күндө
+            кубанычыбызды
+            сиздер менен тең бөлүшүп,
+            ак баталарыңызды алып,
+            төрүбүздөн орун
+            берүүнү каалайбыз.
+
+        </p>
+
+        <p class="gold-text">
+
+            Тойубуздун көркүн ачып,
+            кубанычыбызга
+            ортоктошуп кетиңиздер!
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     4. ТОЙ КҮНҮ
+========================= -->
+
+<section
+    class="
+    screen
+    green-background
+    ">
+
+    <div
+        class="
+        date-circle
+        fade
+        ">
+
+        <div
+            class="small-title">
+
+            ТОЙ КҮНҮ
+
+        </div>
+
+        <div
+            class="big-date">
+
+            20 ОКТЯБРЬ
+
+        </div>
+
+        <div
+            class="year">
+
+            2026-жыл
+
+        </div>
+
+        <div
+            class="time">
+
+            17:00
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     5. ТОЙДУН ОРДУ
+========================= -->
+
+<section
+    class="screen">
+
+    <div
+        class="photo-background"
+        style="
+        background-image:
+        url('images/venue.jpg');
+        ">
+    </div>
+
+    <div
+        class="dark-overlay">
+    </div>
+
+    <div
+        class="content fade">
+
+        <div
+            class="small-title">
+
+            ТОЙДУН ОРДУ
+
+        </div>
+
+        <h2>
+
+            «Апа» рестораны
+
+        </h2>
+
+        <p>
+
+            Талас шаары
+
+        </p>
+
+        <a
+            class="location-button"
+
+            target="_blank"
+
+            href="
+            https://www.google.com/maps/search/?api=1&query=Апа+рестораны+Талас
+            ">
+
+            📍 Картада көрүү
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     6. LOVE STORY
+========================= -->
+
+<section
+    class="
+    screen
+    green-background
+    ">
+
+    <div class="content">
+
+        <div
+            class="small-title fade">
+
+            БИЗДИН LOVE STORY
+
+        </div>
+
+        <h2 class="fade">
+
+            Биздин
+            Love Story
+
+        </h2>
+
+        <p class="fade">
+
+            Ар бир көз ирмем —
+            биздин тарыхыбыздын
+            бир бөлүгү...
+
+        </p>
+
+        <div
+            class="gallery fade">
+
+            <img
+                src="
+                images/lovestory-1.jpg
+                "
+                alt="Love Story 1">
+
+            <img
+                src="
+                images/lovestory-2.jpg
+                "
+                alt="Love Story 2">
+
+            <img
+                src="
+                images/lovestory-3.jpg
+                "
+                alt="Love Story 3">
+
+            <img
+                src="
+                images/lovestory-4.jpg
+                "
+                alt="Love Story 4">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     7. COUNTDOWN
+========================= -->
+
+<section
+    class="
+    screen
+    green-background
+    ">
+
+    <div class="content">
+
+        <div
+            class="small-title fade">
+
+            ТОЮБУЗГА ЧЕЙИН
+
+        </div>
+
+        <h2
+            id="countdownTitle"
+            class="fade">
+
+            Биздин
+            өзгөчө күнгө
+
+        </h2>
+
+
+        <div
+            class="timer fade">
+
+
+            <div
+                class="timer-box">
+
+                <span
+                    class="timer-number"
+                    id="days">
+
+                    0
+
+                </span>
+
+                <span
+                    class="timer-label">
+
+                    КҮН
+
+                </span>
+
+            </div>
+
+
+            <div
+                class="timer-box">
+
+                <span
+                    class="timer-number"
+                    id="hours">
+
+                    00
+
+                </span>
+
+                <span
+                    class="timer-label">
+
+                    СААТ
+
+                </span>
+
+            </div>
+
+
+            <div
+                class="timer-box">
+
+                <span
+                    class="timer-number"
+                    id="minutes">
+
+                    00
+
+                </span>
+
+                <span
+                    class="timer-label">
+
+                    МҮНӨТ
+
+                </span>
+
+            </div>
+
+
+            <div
+                class="timer-box">
+
+                <span
+                    class="timer-number"
+                    id="seconds">
+
+                    00
+
+                </span>
+
+                <span
+                    class="timer-label">
+
+                    СЕКУНД
+
+                </span>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     8. СИЗДЕРДИ КҮТӨБҮЗ
+========================= -->
+
+<section
+    class="
+    screen
+    green-background
+    ">
+
+    <div
+        class="
+        waiting-box
+        fade
+        ">
+
+        <div
+            class="small-title">
+
+            СҮЙҮНҮЧҮБҮЗГӨ
+            ОРТОК БОЛУҢУЗДАР
+
+        </div>
+
+        <h2>
+
+            Сиздерди күтөбүз!
+
+        </h2>
+
+        <p>
+
+            Сиздердин келишиңиздер
+            биз үчүн чоң сыймык.
+
+        </p>
+
+        <p>
+
+            Кубанычыбызды
+            тең бөлүшүп,
+            ак баталарыңызды берип,
+            тойубуздун көркүн ачып
+            кетишиңиздерди каалайбыз!
+
+        </p>
+
+        <p
+            class="gold-text">
+
+            Сиздерди
+            кубаныч менен
+            күтөбүз! ❤️
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     9. ТОЙ ЭЭЛЕРИ
+========================= -->
+
+<section
+    class="
+    screen
+    green-background
+    ">
+
+    <div
+        class="content fade">
+
+        <div
+            class="small-title">
+
+            ТОЙ ЭЭЛЕРИ
+
+        </div>
+
+        <div
+            class="host-names">
+
+            Нурдин
+            <span>&</span>
+            Зайнаб
+
+        </div>
+
+        <p>
+
+            Кубанычыбызга
+            орток болуңуздар! ❤️
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     10. ФИНАЛ
+========================= -->
+
+<section
+    class="
+    screen
+    green-background
+    ">
+
+    <div
+        class="content fade">
+
+        <div
+            class="stars">
+
+            ✦ · ✧ · ✦
+
+        </div>
+
+        <div
+            class="final-title">
+
+            КЕЛГЕНИҢИЗДЕРГЕ
+            <br>
+            ЧОҢ РАХМАТ! ❤️
+
+        </div>
+
+        <p
+            class="final-names">
+
+            Нурдөөлөт
+            &
+            Найнурай
+
+        </p>
+
+        <p>
+
+            20.10.2026
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     МУЗЫКА БАСКЫЧЫ
+========================= -->
+
+<button
+    class="music-button"
+    id="musicButton">
+
+    ♫
+
+</button>
+
+
+
+<script>
+
+/* =========================
+   МУЗЫКА
+========================= */
+
+const music =
+document.getElementById(
+    "weddingMusic"
+);
+
+const openButton =
+document.getElementById(
+    "openInvitation"
+);
+
+const musicButton =
+document.getElementById(
+    "musicButton"
+);
+
+
+openButton.addEventListener(
+    "click",
+    function() {
+
+        music.volume = 0.45;
+
+        music.play()
+        .catch(function(){});
+
+        document
+        .getElementById("hero")
+        .scrollIntoView({
+            behavior: "smooth"
+        });
+
+    }
+);
+
+
+musicButton.addEventListener(
+    "click",
+    function() {
+
+        if (
+            music.paused
+        ) {
+
+            music.play();
+
+            musicButton.innerHTML =
+            "♫";
+
+        }
+
+        else {
+
+            music.pause();
+
+            musicButton.innerHTML =
+            "🔇";
+
+        }
+
+    }
+);
+
+
+
+/* =========================
+   ЭКРАН АНИМАЦИЯСЫ
+========================= */
+
+const observer =
+new IntersectionObserver(
+
+    function(entries) {
+
+        entries.forEach(
+            function(entry) {
+
+                if (
+                    entry.isIntersecting
+                ) {
+
+                    entry
+                    .target
+                    .classList
+                    .add(
+                        "visible"
+                    );
+
+                }
+
+            }
+        );
+
+    },
+
+    {
+        threshold: 0.18
+    }
+
+);
+
+
+document
+.querySelectorAll(
+    ".screen"
+)
+.forEach(
+    function(screen) {
+
+        observer.observe(
+            screen
+        );
+
+    }
+);
+
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+
+/*
+Той:
+20-октябрь 2026
+17:00
+
+Кыргызстан убактысы:
+UTC +6
+*/
+
+const weddingDate =
+new Date(
+    "2026-10-20T17:00:00+06:00"
+).getTime();
+
+
+function updateCountdown() {
+
+    const now =
+    new Date()
+    .getTime();
+
+    const difference =
+    weddingDate - now;
+
+
+    if (
+        difference <= 0
+    ) {
+
+        document
+        .getElementById(
+            "countdownTitle"
+        )
+        .innerHTML =
+        "БҮГҮН ТОЙ КҮНҮ! ❤️";
+
+
+        document
+        .getElementById(
+            "days"
+      
